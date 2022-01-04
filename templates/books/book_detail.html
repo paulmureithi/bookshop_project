@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}{{ book.title }}{% endblock title %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Paul's Bookstore</h1>
+        <p class="lead">This is a simple online bookstore, a simple component for calling extra attention to those who like reading.</p>
+        <hr class="my-4">
+        <a href="{% url 'book_list' %}" class="btn btn-primary" style="width: 100px;">Back</a>
+    </div>
+
+    <div class="row" style="margin-bottom: 30px">
+        <div class="col-md-4 offset-md-2">
+            <div class="card h-100">
+                <img src="{{ book.cover.url}}" class="card-img-top" alt="{{ book.title }}">
+
+            </div>
+       </div>
+       <div class="col-md-4">
+            <div class="card-body">
+                <h4 class="card-title">Book Details</h4>
+                <hr class="my-4">
+                <p class="card-text"><strong>Title: </strong>{{ book.title }}</p>
+                <p class="card-text"><strong>Author: </strong>{{ book.author }}</p>
+                <p class="card-text"><strong>Price: </strong>${{ book.price }}</p>
+                <hr class="my-4">
+                <p class="card-text"><strong>Description: </strong>{{ book.description }}</p>
+                <br>
+                <div>
+                <a href="{% url 'orders' %}" class="btn btn-primary"
+                style="border-radius: 0px; width: 100px; text-align: left">Buy Book</a>
+                </div>
+            </div>
+
+
+
+       </div>
+
+
+
+    </div>
+
+    <div class="jumbotron">
+        <hr class="my-4">
+        <p><b>Nairobi, Kenya </b>| <b>Tel: 0712-345-678</b></p>
+    </div>
+
+{% endblock content %}

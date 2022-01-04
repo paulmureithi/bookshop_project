@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add Book{% endblock title %}
+
+{% block content %}
+
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Paul's Bookstore</h1>
+        <p class="lead">This is a simple online bookstore, a simple component for calling extra attention to those who like reading.</p>
+        <hr class="my-4">
+    </div>
+
+    <div class="col-md-6 offset-md-3">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form|crispy}}
+
+            <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+    </div>
+{% endblock content %}

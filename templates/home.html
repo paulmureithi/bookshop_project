@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+
+{% block content %}
+    <h1>Vendors Page</h1>
+
+<!--check if user is logged in-->
+
+    {% if user.is_authenticated %}
+        Hi {{user.email}}
+        <a href="{% url 'account_logout' %}">Logout</a>
+    {% else %}
+        <p>You're not logged in.</p>
+        <a href="{% url 'account_login' %}">Login</a>
+        <a href="{% url 'account_signup' %}">Register</a>
+    {% endif%}
+
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to Paul's Bookstore</h1>
+        <p class="lead">This is a simple online bookstore, a simple component for calling extra attention to those who like reading.</p>
+        <hr class="my-4">
+        <p>This page is where registered vendors & authors can upload their books to our site.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Order Today</a>
+    </div>
+
+{% endblock content %}
